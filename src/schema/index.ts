@@ -5,6 +5,7 @@ import permissions from '@rules/index';
 import { readdirSync, readFileSync } from 'fs';
 import { applyMiddleware } from 'graphql-middleware';
 import { join } from 'path';
+import { buildFederationSchema } from '@mercuriusjs/federation';
 
 const rootPath = join(process.cwd(), 'graphql');
 const definitons = [];
@@ -17,7 +18,7 @@ for (const file of readdirSync(rootPath)) {
 
 export const schema = applyMiddleware(
   makeExecutableSchema({
-    typeDefs: definitons.join('\n'),
+    typeDefs: buildFederationSchema(definitons.join('\n')),
     resolvers: {
       Query: queries,
       Mutation: mutations,

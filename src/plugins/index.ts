@@ -78,5 +78,7 @@ const formatPhoneNumber = (phone: string = ''): string => {
 };
 
 export default fp(async (app, opts) => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   app.decorate('plugins', { compileEjs, parseCsv, buildXLSX, jwt: token, decodeJwtToken, formatPhoneNumber, validateEmailAddress, toPascalCase, smsToPhoneNumber });
 });

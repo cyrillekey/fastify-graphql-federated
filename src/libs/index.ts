@@ -1,14 +1,14 @@
 import { PrismaClient } from '@prisma/client';
 import fp from 'fastify-plugin';
-import puppeteer from 'puppeteer';
+import puppeteer, { Browser } from 'puppeteer';
 import { IEmailOptions, sendEmailMessage } from './Email';
 import firebaseFuncs, { IFirebase } from './Firebase';
 
 export interface ILibraries {
   firebase: IFirebase;
   prisma: PrismaClient;
-  sendEmailMessage: (emailopts: IEmailOptions) => Promise<any>;
-  browser: puppeteer.Browser;
+  sendEmailMessage: (emailopts: IEmailOptions) => Promise<unknown>;
+  browser: Browser;
 }
 
 export default fp(async (app, _opts) => {

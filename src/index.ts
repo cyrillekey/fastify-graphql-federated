@@ -21,9 +21,9 @@ const fastify = new App();
 
 // run app in cluster mode in a production environment
 if (process.env.NODE_ENV === 'production')
-  if (cluster.isMaster) {
+  if (cluster.default.isPrimary) {
     for (const _cpu of os.cpus()) {
-      cluster.fork();
+      cluster.default.fork();
     }
   } else {
     fastify.start();

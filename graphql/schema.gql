@@ -1,38 +1,29 @@
 scalar JSON
-scalar Date
+scalar DateTime
 scalar Number
 scalar Upload
 
-type Error {
+type Error @key(fields: "field"){
   field: String!
   message: String!
 }
-type ApiResponse {
+type ApiResponse @key(fields: "message"){
   message: String
   error: Error
 }
-type Account {
-  id: String
+type Account @key(fields: "id") {
+  id: ID
   name: String
   phone: String
-  email: String
-  address: String
-  idNumber: String
-  createdAt: Date
-  updatedAt: Date
-}
-type TokenPayload {
-  token: String
-}
-type SignInResponse {
-  message: String
-  user: Account
-  payload: TokenPayload
+  email: String  
+  idNumber: Number
+  createdAt: DateTime
+  updatedAt: DateTime
 }
 
 # end of type definitions
 # beginning of input type definitions
-input SignUpInput {
+input SignUpWalletInput {
   name: String!
   phone: String!
   email: String
@@ -40,14 +31,11 @@ input SignUpInput {
   address: String
   idNumber: String
 }
-input SignInInput {
-  phone: String
-  password: String
-}
+
 
 # end of input type definitions
 # beginning of enum definitions
-enum Role {
+enum AccountType {
   SUPER_ADMIN
-  CLIENT
+  USER
 }

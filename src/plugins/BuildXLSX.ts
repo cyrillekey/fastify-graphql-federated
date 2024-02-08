@@ -54,7 +54,7 @@ export function buildXLSX(sheetname: string, items: unknown[]): string {
 
   const options = { '!cols': columnsWidth, '!rows': rowsWidth };
 
-  const buffer = xlsx.build([{ name: sheetname.length > 30 ? sheetname.slice(0, 30) : sheetname, data }], options);
+  const buffer = xlsx.build([{ name: sheetname.length > 30 ? sheetname.slice(0, 30) : sheetname, data,options }], options);
 
   try {
     mkdirSync(join(__dirname, '..', '..', `reports`, `sheets`), { recursive: true });

@@ -2,9 +2,7 @@ type Mutation {
   """
   Create account
   """
-  signUp(input: SignUpInput!): Account
-  """
-  Sign in
-  """
-  signIn(input: SignInInput!): ApiResponse
+  signUpWallet(input: SignUpWalletInput!): Account
+  
+  
 }

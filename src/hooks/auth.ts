@@ -1,6 +1,10 @@
 import { Role } from '.prisma/client';
 import { rule } from 'graphql-shield';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { RuleAnd, RuleNot, RuleOr } from 'graphql-shield/dist/rules';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { ShieldRule } from 'graphql-shield/dist/types';
 import { MercuriusContext } from 'mercurius';
 

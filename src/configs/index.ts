@@ -18,8 +18,8 @@ export interface IConfig {
   };
   defaultPassword: string;
   jwt: {
-    private: string;
-    public: string;
+    private?: string;
+    public?: string;
     passphrase: string;
   };
   africasTalkingUsername: string;
@@ -37,8 +37,7 @@ export const configs: IConfig = {
   apiurl: process.env.NODE_ENV === 'production' ? process.env.PROD_API_URL : process.env.STAGING_API_URL,
   firebaseAccountJsonFile: require(join(process.cwd(), 'conf', 'app-api-service.json')),
   jwt: {
-    private: readFileSync(join(process.cwd(), 'conf', 'certs', 'private.pem'), 'utf-8'),
-    public: readFileSync(join(process.cwd(), 'conf', 'certs', 'public.pem'), 'utf-8'),
+    
     passphrase: process.env.JWT_PRIVATE_KEY_PASSPHRASE,
   },
   totpSecretKey: process.env.TOTP_SECRET_KEY,
