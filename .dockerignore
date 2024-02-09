@@ -5,5 +5,4 @@ Dockerfile
 .git
 node_modules
 dist
-graphql/index.d.ts
 deploy*
